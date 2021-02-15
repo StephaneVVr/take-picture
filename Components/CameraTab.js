@@ -6,7 +6,6 @@ import AppContainer from "./AppContainer";
 
 const CameraTabComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
 
   useEffect(() => {
     (async () => {
@@ -24,7 +23,12 @@ const CameraTabComponent = () => {
   }
   return (
     <AppContainer>
-      <Text>Camera component</Text>
+      <Camera
+        ref={(ref) => {
+          this.camera = ref;
+        }}
+        style={{ flex: 1 }}
+      ></Camera>
     </AppContainer>
   );
 };
